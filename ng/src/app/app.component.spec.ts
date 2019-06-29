@@ -7,11 +7,11 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule,
+        RouterTestingModule
       ],
       declarations: [
+        AppComponent,
         LoginComponent,
-        AppComponent
       ],
     }).compileComponents();
   }));
@@ -22,7 +22,7 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'bgmatcher'`, () => {
+  it(`should have as title 'Board Game Matcher'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('Board Game Matcher');
@@ -32,6 +32,6 @@ describe('AppComponent', () => {
   //   const fixture = TestBed.createComponent(AppComponent);
   //   fixture.detectChanges();
   //   const compiled = fixture.debugElement.nativeElement;
-  //   expect(compiled.querySelector('h1').textContent).toContain('Welcome to bgmatcher!');
+  //   expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng!');
   // });
 });
