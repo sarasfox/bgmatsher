@@ -1,1 +1,15 @@
-<p>login works!</p>
+<div id="login">
+    <div [style.display]="loginState!=0 ? 'inline':'none'">
+        <p class="error" [style.display]="loginState==2 ? 'inline':'none'">Bad login or Username</p>
+        <label> Username
+            <input [(ngModel)]="user.Username"/>
+        </label>
+        <label> Password
+            <input [(ngModel)]="user.Password" type="password"/>
+        </label>
+        <button (click)="login()" >Login</button>
+    </div>
+    <div [style.display]="loginState==0 ? 'inline':'none'">
+        <button (click)="logOut()">Logout</button>
+    </div>
+</div>
