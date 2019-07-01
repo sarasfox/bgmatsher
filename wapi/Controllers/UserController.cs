@@ -3,13 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using wapi.Models;
 
 namespace wapi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ValuesController : ControllerBase
+    public class UserController : ControllerBase
     {
+        private User userOut= new User();
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
@@ -24,10 +26,17 @@ namespace wapi.Controllers
             return "value";
         }
 
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody] string value)
+        [HttpPost("login")]
+        public ActionResult login([FromBody] User user)
         {
+            if(UserExist(user)){
+                if(user.password=="test"){
+                    user.badLogin = false;
+                    return Ok(user);
+                }
+            }
+            user.badLogin = true;
+            return Unauthorized(user);
         }
 
         // PUT api/values/5
@@ -40,6 +49,9 @@ namespace wapi.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+        }
+        private bool UserExist(User user){
+            return true;
         }
     }
 }

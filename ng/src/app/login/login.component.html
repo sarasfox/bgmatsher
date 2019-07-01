@@ -8,8 +8,10 @@
             <input [(ngModel)]="user.Password" type="password"/>
         </label>
         <button (click)="login()" >Login</button>
+        <a routerLink='/signUp'>Sign Up</a>
     </div>
     <div [style.display]="loginState===0 ? 'inline':'none'">
+        <p>{{user.Username}}</p>
         <button (click)="logOut()">Logout</button>
     </div>
 </div>
